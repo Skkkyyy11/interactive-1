@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backroom: Level 0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== TITLE SCREEN ===== -->
+<div id="title-screen" class="title-screen">
+    <div class="title-container">
+        <div class="title-main">BACKROOM</div>
+        <div class="title-cn">LEVEL 0</div>
+        <p class="title-desc">A place you recognise.<br>Or used to.</p>
+        <div class="title-rules">
+            <p>· Each room may be normal — or <span class="anom-word">anomalous</span></p>
+            <p>· Normal room → <strong>Keep going</strong></p>
+            <p>· Anomalous room → <strong>Escape</strong></p>
+            <p>· Wrong call = lose 1 chance (3 total)</p>
+            <p>· 5 correct in a row to find the exit</p>
+        </div>
+        <div class="title-credit">by Zhiyu Hui</div>
+        <button class="start-btn" onclick="startGame()">ENTER</button>
+    </div>
+</div>
+
+<!-- ===== DOOR CHOICE (INTRO) ===== -->
+<div id="door-screen" class="door-screen hidden">
+    <div class="door-box">
+        <div class="door-title">THE ENTRANCE</div>
+        <p class="door-msg">Faint light bleeds through the crack. You hear the corridor breathing inside.</p>
+        <div class="door-choices">
+            <button class="choice-btn btn-continue" onclick="handleDoorChoice('wait')">
+                <span class="btn-cn">Wait patiently</span>
+                <span class="btn-en">Stay still. Let it open itself.</span>
+            </button>
+            <div class="choice-divider"></div>
+            <button class="choice-btn btn-escape" onclick="handleDoorChoice('force')">
+                <span class="btn-cn">Force it open</span>
+                <span class="btn-en">Break through. Now.</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== CAUGHT FLASH (FORCE DOOR) ===== -->
+<div id="caught-overlay" class="caught-overlay hidden">
+    <div class="caught-text">You were caught.</div>
+</div>
+
+<!-- ===== GAME SCREEN ===== -->
+<div id="scene-container" class="scene-container">
+
+    <!-- Background image layer -->
+    <img id="game-image" class="game-image" src="" alt="corridor">
+
+    <!-- Anomaly colour overlay -->
+    <div id="anomaly-overlay" class="anomaly-overlay"></div>
+
+    <!-- Ambient darkness overlay (pressure) -->
+    <div id="ambient-overlay" class="ambient-overlay"></div>
+
+    <!-- Grain texture -->
+    <div class="grain-overlay"></div>
+
+    <!-- Vignette -->
+    <div class="vignette"></div>
+
+    <!-- ── HUD top ── -->
+    <div class="hud-top">
+        <div class="hud-left">
+            <span id="scene-label" class="scene-label">ROOM 01</span>
+            <span id="loop-badge" class="loop-badge"></span>
+        </div>
+        <div class="hud-center">
+            <span class="streak-word">MEMORY</span>
+            <div id="streak-bar" class="streak-bar"></div>
+        </div>
+        <div class="hud-right">
+            <div class="lives">
+                <span class="lives-label">LIVES</span>
+                <div id="lives-bar" class="lives-bar"></div>
+            </div>
+            <button class="map-btn" onclick="toggleMap()">[ MAP ]</button>
+        </div>
+    </div>
+
+    <!-- ── Narrative trigger (bottom-right dot) ── -->
+    <div id="narrative-trigger" class="narrative-trigger" onclick="toggleNarrative()" title="Notes">
+        <span class="pulse-dot">●</span>
+    </div>
+
+    <!-- ── Narrative panel ── -->
+    <div id="narrative-panel" class="narrative-panel hidden">
+        <p id="narrative-text"></p>
+        <span class="nar-close" onclick="toggleNarrative()">×</span>
+    </div>
+
+    <!-- ── Choices ── -->
+    <div id="choice-area" class="choice-area">
+        <button class="choice-btn btn-continue" onclick="handleChoice('continue')">
+            <span class="btn-cn">Keep going</span>
+            <span class="btn-en">This room looks normal.</span>
+        </button>
+        <div class="choice-divider"></div>
+        <button class="choice-btn btn-escape" onclick="handleChoice('escape')">
+            <span class="btn-cn">Escape</span>
+            <span class="btn-en">Something is wrong here.</span>
+        </button>
+    </div>
+
+</div>
+
+<!-- ===== MAP OVERLAY ===== -->
+<div id="map-overlay" class="map-overlay hidden">
+    <div class="map-box">
+        <div class="map-header">
+            <span class="map-title">SPATIAL MAP</span>
+            <button class="map-close" onclick="toggleMap()">× CLOSE</button>
+        </div>
+        <svg id="map-svg" class="map-svg" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="map-legend">
+            <span class="leg-item"><span class="leg-dot current"></span>Current</span>
+            <span class="leg-item"><span class="leg-dot visited"></span>Visited</span>
+            <span class="leg-item"><span class="leg-dot anomaly-node"></span>Anomaly</span>
+            <span class="leg-item"><span class="leg-dot win-node"></span>Exit</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===== WRONG FLASH OVERLAY ===== -->
+<div id="wrong-overlay" class="wrong-overlay">
+    <div class="wrong-content">
+        <div class="wrong-title">WRONG CALL</div>
+        <div id="wrong-sub" class="wrong-sub">Wrong judgment</div>
+    </div>
+</div>
+
+<!-- ===== PARTYGOER OVERLAY ===== -->
+<div id="party-overlay" class="party-overlay hidden">
+    <div class="party-box">
+        <div class="party-title">Pick one :)</div>
+        <div class="party-choices">
+            <button class="party-btn" onclick="handlePartyChoice('A')">
+                <span class="p-cn">A. 😊 Take the balloon. "Thanks for the invite!"</span>
+            </button>
+            <button class="party-btn" onclick="handlePartyChoice('B')">
+                <span class="p-cn">B. 🙂 Smile and nod, slowly back away.</span>
+            </button>
+            <button class="party-btn" onclick="handlePartyChoice('C')">
+                <span class="p-cn">C. 😐 Ignore it. Turn around and leave.</span>
+            </button>
+        </div>
+        <div id="party-result" class="party-result"></div>
+    </div>
+</div>
+
+<!-- ===== LEVEL! ENDING ===== -->
+<div id="level-screen" class="level-screen hidden">
+    <div class="level-box">
+        <div class="level-title">LEVEL !</div>
+        <p class="level-msg">You entered a space that should not exist.</p>
+        <p class="level-sub">Ending: Trapped forever.</p>
+        <button class="restart-btn" onclick="restartGame()">RESTART</button>
+    </div>
+</div>
+
+<!-- ===== UNLOCK OVERLAY (WIN) ===== -->
+<div id="unlock-overlay" class="unlock-overlay hidden">
+    <div class="unlock-box">
+        <div class="unlock-title">UNLOCK</div>
+        <div class="unlock-sub">The lock is turning</div>
+        <div class="unlock-key"></div>
+    </div>
+</div>
+
+<!-- ===== WIN SCREEN ===== -->
+<div id="win-screen" class="win-screen hidden">
+    <div class="win-box">
+        <div class="win-exit-text">EXIT</div>
+        <p class="win-msg">You found the exit.</p>
+        <p class="win-you-made-it">Or maybe just another version of it.</p>
+        <p class="win-lore">The Backrooms are endless spaces shaped by confusion, repetition, and the fear of getting lost in something that feels strangely familiar.</p>
+        <div class="win-stats">
+            <div class="win-stat">
+                <span class="stat-val" id="win-streak-val">0</span>
+                <span class="stat-label">Streak</span>
+            </div>
+            <div class="win-stat">
+                <span class="stat-val" id="win-loop-val">0</span>
+                <span class="stat-label">Loops</span>
+            </div>
+        </div>
+        <div class="win-credit">by Zhiyu Hui</div>
+        <button class="restart-btn" onclick="restartGame()">RESTART</button>
+    </div>
+</div>
+
+<!-- ===== FAIL SCREEN ===== -->
+<div id="fail-screen" class="fail-screen hidden">
+    <div class="fail-box">
+        <div class="fail-title">LOST</div>
+        <p class="fail-msg">No chances left.</p>
+        <p class="fail-sub">The space offered no second path.</p>
+        <button class="restart-btn" onclick="restartGame()">RESTART</button>
+    </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+[
+  {
+    "id": "scene_01",
+    "name": "The Entrance",
+    "image": "IMG_3626_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "You pass through this door every day. But today it feels heavier than usual.",
+    "nextScene": "scene_02",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_02",
+    "name": "Access Point",
+    "image": "IMG_3629_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "The access reader beeped. Then went silent. Then beeped again.",
+    "nextScene": "scene_03",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_03",
+    "name": "Corridor A",
+    "image": "IMG_3631_2.jpg",
+    "isAnomaly": true,
+    "anomalyType": "LIGHT_FLICKER",
+    "narrative": "This corridor is longer than you remember. The lights keep flickering.",
+    "nextScene": "scene_04",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_04",
+    "name": "Corridor B",
+    "image": "IMG_3632_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "You counted. Seven doors on the left. There were six last time.",
+    "nextScene": "scene_05",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_05",
+    "name": "The Gallery",
+    "image": "IMG_3633_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "That painting wasn't here before.",
+    "nextScene": "scene_06",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_06",
+    "name": "Room 204",
+    "image": "IMG_3634_2.jpg",
+    "isAnomaly": true,
+    "anomalyType": "PERSPECTIVE",
+    "narrative": "The ground is shaking. The walls are vibrating. Why is this happening? I need to get out of here.",
+    "nextScene": "scene_07",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_07",
+    "name": "Long Hall A",
+    "image": "IMG_3635_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "Light bleeds under the door of room 202. You know that unit has been empty for two years.",
+    "nextScene": "scene_08",
+    "isLoopEntry": true,
+    "isWin": false
+  },
+  {
+    "id": "scene_08",
+    "name": "Long Hall B",
+    "image": "IMG_3636_2.jpg",
+    "isAnomaly": true,
+    "anomalyType": "LIGHT_COLOR",
+    "narrative": "You've walked this hallway before. The color of the light is wrong.",
+    "nextScene": "scene_09",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_09",
+    "name": "Loop Corridor A",
+    "image": "IMG_3639_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "You're certain you've walked this exact hallway.",
+    "nextScene": "scene_10",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_10",
+    "name": "Loop Corridor B",
+    "image": "IMG_3640_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "This can't be the same place.",
+    "nextScene": "scene_11",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_11",
+    "name": "EXIT Hallway",
+    "image": "IMG_3641_2.jpg",
+    "isAnomaly": true,
+    "anomalyType": "SIGN_COLOR",
+    "narrative": "There's a door at the end. No number on it. The EXIT sign doesn't look right.",
+    "nextScene": "scene_12",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_12",
+    "name": "Dead End",
+    "image": "IMG_3645_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "This corridor has no end. Or maybe it does.",
+    "nextScene": "scene_13",
+    "isLoopEntry": false,
+    "isWin": false
+  },
+  {
+    "id": "scene_13",
+    "name": "EXIT",
+    "image": "IMG_3651_2.jpg",
+    "isAnomaly": false,
+    "anomalyType": null,
+    "narrative": "Outside is the world you know. You walked out.",
+    "nextScene": null,
+    "isLoopEntry": false,
+    "isWin": true
+  }
+]

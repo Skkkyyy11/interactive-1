@@ -1,0 +1,572 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+.app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background: #dcd0ff;
+}
+.app-item {
+  width: 12%;
+  min-width: 80px;
+  height: 197px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app .a-top {
+  margin-left: 9px;
+  width: 44px;
+  height: 6px;
+  border: 1px double;
+}
+.app .a-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app .a-footer-item {
+  width: 11px;
+  height: 70px;
+  background: #000;
+}
+.app .a-footer-item:nth-last-child(1) {
+  margin-left: 20px;
+}
+.app .a-footer-radound {
+  width: 23px;
+  height: 20px;
+  position: relative;
+  left: 10px;
+}
+.app .a-footer-radound-content {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #000;
+}
+.app .a:hover .a-top {
+  width: 47px;
+  height: 10px;
+  border: none;
+  background: #000;
+}
+.app .a:hover .a-footer-item {
+  background: transparent;
+  border: 1px double;
+}
+.app .a:hover .a-footer-radound-content {
+  background: transparent;
+  border: 1px double;
+}
+.app .b {
+  display: flex;
+  gap: 10px;
+}
+.app .b-left {
+  width: 14px;
+  height: 65px;
+  background: #000;
+}
+.app .b-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.app .b-right-item1 {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #000;
+}
+.app .b-right-item2 {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px double;
+}
+.app .b:hover .b-left {
+  background: transparent;
+  border: 1px double;
+}
+.app .b:hover .b-right-item1 {
+  background: transparent;
+  border: 1px double;
+}
+.app .b:hover .b-right-item2 {
+  border: none;
+  background: #000;
+}
+.app .c {
+  display: flex;
+}
+.app .c-left {
+  width: 19px;
+  height: 60px;
+  background: #000;
+}
+.app .c-right {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+.app .c-right-item {
+  width: 36px;
+  height: 8px;
+  background: #000;
+}
+.app .c:hover .c-left {
+  background: transparent;
+  border: 1px double;
+}
+.app .c:hover .c-right-item {
+  background: transparent;
+  border: 1px double ;
+}
+.app .d {
+  display: flex;
+  gap: 10px;
+}
+.app .d-left {
+  width: 14px;
+  height: 65px;
+  background: #000;
+}
+.app .d-right {
+  width: 34px;
+  height: 65px;
+  border: 1px double;
+}
+.app .d:hover .d-left {
+  background: transparent;
+  border: 1px double;
+}
+.app .d:hover .d-right {
+  border: none;
+  background: #000;
+}
+.app .e {
+  display: flex;
+  gap: 10px;
+}
+.app .e-left {
+  width: 14px;
+  height: 65px;
+  background: #000;
+}
+.app .e-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.app .e-right-item {
+  width: 65px;
+  height: 7px;
+}
+.app .e-right .e1 {
+  background: #000;
+}
+.app .e-right .e2 {
+  height: 24px;
+  background: #000;
+}
+.app .e-right .e3 {
+  border: 1px double;
+}
+.app .e:hover .e-left {
+  background: transparent;
+  border: 1px double;
+}
+.app .e:hover .e1,
+.app .e:hover .e2 {
+  background: transparent;
+  border: 1px double;
+}
+.app .e:hover .e3 {
+  border: none;
+  background: #000;
+}
+.app .f {
+  display: flex;
+  gap: 10px;
+}
+.app .f-left {
+  width: 14px;
+  height: 65px;
+  border: 1px double;
+}
+.app .f-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.app .f-right-top {
+  width: 44px;
+  height: 25px;
+  background: #000;
+}
+.app .f-right-randond {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #000;
+}
+.app .f:hover .f-left {
+  border: none;
+  background: #000;
+}
+.app .f:hover .f-right-top,
+.app .f:hover .f-right-randond {
+  background: transparent;
+  border: 1px double;
+}
+.app .g {
+  width: 78px;
+  height: 78px;
+  position: relative;
+}
+.app .g-vertical {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 78px;
+  background: #000;
+}
+.app .g-top {
+  position: absolute;
+  top: 0;
+  left: 69px;
+  width: 60px;
+  height: 18px;
+  background: #000;
+}
+.app .g-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 61px;
+  width: 52px;
+  height: 18px;
+  background: #000;
+}
+.app .g-din {
+  position: absolute;
+  bottom: 0;
+  left: 95px;
+  top: 34px;
+  width: 18px;
+  height: 31px;
+  background: #000;
+}
+.app .g:hover .g-vertical,
+.app .g:hover .g-top,
+.app .g:hover .g-bottom,
+.app .g:hover .g-din {
+  background: transparent;
+  border: 1px double;
+}
+.app .h {
+  display: flex;
+  gap: 10px;
+  gap: 1px !important;
+}
+.app .h-left,
+.app .h-right {
+  width: 14px;
+  height: 65px;
+  background: #000;
+  position: relative;
+}
+.app .h-left-top,
+.app .h-right-top {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 20px;
+  height: 10px;
+  background: #000;
+}
+.app .h-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.app .h-middle-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
+}
+.app .h:hover .h-left,
+.app .h:hover .h-right,
+.app .h:hover .h-left-top,
+.app .h:hover .h-right-top,
+.app .h:hover .h-middle-circle {
+  background: transparent;
+  border: 1px double;
+}
+.app .i {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.app .i-top,
+.app .i-bottom {
+  width: 30px;
+  height: 14px;
+  background: #000;
+}
+.app .i-middle {
+  width: 14px;
+  height: 40px;
+  background: #000;
+}
+.app .i:hover .i-top,
+.app .i:hover .i-bottom,
+.app .i:hover .i-middle {
+  background: transparent;
+  border: 1px double;
+}
+.app .j {
+  display: flex;
+  flex-direction: column;
+}
+.app .j-top {
+  width: 46px;
+  height: 14px;
+  background: #000;
+}
+.app .j-middle {
+  width: 30px;
+  height: 68px;
+  position: relative;
+}
+.app .j-middle-right {
+  position: absolute;
+  right: -16px;
+  top: 0;
+  width: 14px;
+  height: 100%;
+  background: #000;
+}
+.app .j-bottom {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px double;
+  align-self: flex-end;
+  margin-right: 24px;
+  margin-top: -26px;
+}
+.app .j:hover .j-top,
+.app .j:hover .j-middle-right {
+  background: transparent;
+  border: 1px double;
+}
+.app .j:hover .j-bottom {
+  border: none;
+  background: #000;
+}
+.app .k {
+  display: flex;
+  gap: 10px;
+}
+.app .k-left {
+  width: 14px;
+  height: 65px;
+  background: #000;
+}
+.app .k-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  top: 5px;
+}
+.app .k-right-top {
+  margin-top: 13px;
+  width: 35px;
+  height: 10px;
+  background: #000;
+  transform: rotate(-37deg);
+  transform-origin: left center;
+}
+.app .k-right-bottom {
+  width: 35px;
+  height: 10px;
+  border: 1px double;
+  transform: rotate(50deg);
+  transform-origin: left center;
+  position: relative;
+  top: -31px;
+}
+.app .k:hover .k-left,
+.app .k:hover .k-right-top {
+  background: transparent;
+  border: 1px double;
+}
+.app .k:hover .k-right-bottom {
+  border: none;
+  background: #000;
+}
+.app .l {
+  display: flex;
+  flex-direction: column;
+}
+.app .l-left {
+  width: 14px;
+  height: 65px;
+  background: #000;
+}
+.app .l-bottom {
+  width: 35px;
+  height: 14px;
+  border: 1px double;
+  margin-top: 5px;
+  margin-left: 10px;
+  position: relative;
+  bottom: 19px;
+}
+.app .l:hover .l-left {
+  background: transparent;
+  border: 1px double;
+}
+.app .l:hover .l-bottom {
+  border: none;
+  background: #000;
+}
+.app .m {
+  display: flex;
+  gap: 10px;
+  gap: 1px !important;
+}
+.app .m-left,
+.app .m-right {
+  width: 14px;
+  height: 65px;
+  background: #000;
+}
+.app .m-center {
+  padding-top: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.app .m-center-top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.app .m-center-top-item {
+  width: 16px;
+  height: 1px;
+  border: 1px double;
+  position: relative;
+}
+.app .m-center-top-item:nth-child(1) {
+  left: -12px;
+}
+.app .m-center-top-item:nth-child(2) {
+  left: 12px;
+}
+.app .m-center-footer {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #000;
+}
+.app .m:hover .m-left {
+  background: transparent;
+  border: 1px double;
+}
+.app .m:hover .m-center-top-item {
+  border: none;
+  border: 1px double;
+}
+.app .n {
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+.app .n-left,
+.app .n-right {
+  width: 14px;
+  height: 65px;
+  background: #000;
+}
+.app .n-diagonal {
+  position: absolute;
+  top: 0;
+  left: 14px;
+  width: 49px;
+  height: 10px;
+  border: 1px double;
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+.app .n:hover .n-left,
+.app .n:hover .n-right {
+  background: transparent;
+  border: 1px double;
+}
+.app .n:hover .n-diagonal {
+  border: none;
+  background: #000;
+}
+.app .o {
+  width: 100%;
+}
+.app .o-circle {
+  margin-left: 93px;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app .o-circle-inner {
+  width: 57px;
+  height: 57px;
+  background: #fff;
+}
+.app .o:hover .o-circle {
+  background: transparent;
+  border: 1px double;
+}
+.app .p {
+  display: flex;
+  gap: 10px;
+}
+.app .p-left {
+  width: 14px;
+  height: 65px;
+  border: 1px double;
+}
+.app .p-right {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: #000;
+}
+.app .p:hover .p-left {
+  border: none;
+  background: #000;
+}
+.app .p:hover .p-right {
+  background: transparent;
+  border: 1px solid;
+}
